@@ -13,21 +13,22 @@ export default function FeaturedVideoSection() {
     <section className="bg-black pt-6 md:pt-10 pb-20 md:pb-32 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto" ref={ref}>
         <motion.div
-          className="rounded-3xl overflow-hidden aspect-video relative"
+          className="rounded-3xl overflow-hidden relative"
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9 }}
         >
-          <LazyVideo
-            src={FEATURED_VIDEO}
-            className="w-full h-full object-cover"
-          />
+          {/* Video */}
+          <div className="aspect-video relative overflow-hidden">
+            <LazyVideo
+              src={FEATURED_VIDEO}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          </div>
 
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-          {/* Bottom overlay content */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+          {/* On mobile: flows below video. On md+: absolute overlay on top of video */}
+          <div className="md:absolute md:bottom-0 md:left-0 md:right-0 p-6 md:p-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-4 md:gap-6">
             <div className="liquid-glass rounded-2xl p-6 md:p-8 max-w-md">
               <p className="text-white/50 text-xs tracking-widest uppercase mb-3">
                 Our Approach
