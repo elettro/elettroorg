@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
+import LazyVideo from './LazyVideo'
 
 const FONT = { fontFamily: "'Instrument Serif', serif" }
 
@@ -64,14 +65,9 @@ export default function ServicesSection() {
             >
               {/* Video thumbnail */}
               <div className="aspect-video relative overflow-hidden">
-                <video
+                <LazyVideo
                   src={service.video}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  muted
-                  autoPlay
-                  loop
-                  playsInline
-                  preload="auto"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </div>

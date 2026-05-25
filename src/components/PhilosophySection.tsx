@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import LazyVideo from './LazyVideo'
 
 const PHILOSOPHY_VIDEO =
   'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260307_083826_e938b29f-a43a-41ec-a153-3d4730578ab8.mp4'
@@ -36,14 +37,9 @@ export default function PhilosophySection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <video
+            <LazyVideo
               src={PHILOSOPHY_VIDEO}
               className="w-full h-full object-cover"
-              muted
-              autoPlay
-              loop
-              playsInline
-              preload="auto"
             />
           </motion.div>
 

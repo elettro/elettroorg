@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, Instagram, Twitter, Globe, Mail, Phone } from 'lucide-react'
 
@@ -9,11 +9,15 @@ const WEB3FORMS_KEY = 'a7d7be80-45b7-4c10-aef4-a51b874a1341'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 
-export default function ContactSection() {
+export default function ContactSection({ initialEmail = '' }: { initialEmail?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-80px' })
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [form, setForm] = useState({ name: '', email: initialEmail, message: '' })
   const [state, setState] = useState<FormState>('idle')
+
+  useEffect(() => {
+    if (initialEmail) setForm(f => ({ ...f, email: initialEmail }))
+  }, [initialEmail])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

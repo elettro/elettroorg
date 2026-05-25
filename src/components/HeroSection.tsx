@@ -1,4 +1,4 @@
-import { useRef, useCallback } from 'react'
+import { useRef, useCallback, useState } from 'react'
 import { ArrowRight, Instagram, Twitter, Globe } from 'lucide-react'
 
 const ELETTRO_LOGO = 'https://raw.githubusercontent.com/elettro/elettro/main/images/Elettro-logo-white.png'
@@ -8,7 +8,8 @@ const HERO_VIDEO =
 
 const FONT = { fontFamily: "'Instrument Serif', serif" }
 
-export default function HeroSection() {
+export default function HeroSection({ onEmailCapture }: { onEmailCapture?: (email: string) => void }) {
+  const [email, setEmail] = useState('')
   const videoRef = useRef<HTMLVideoElement>(null)
   const rafRef = useRef<number | null>(null)
   const isFadingOut = useRef(false)
@@ -111,7 +112,7 @@ export default function HeroSection() {
               Get in Touch
             </a>
             <a
-              href="#about"
+              href="#contact"
               className="liquid-glass rounded-full px-6 py-2 text-white text-sm font-medium hover:bg-white/5 transition-colors"
             >
               Start a Project
@@ -136,10 +137,15 @@ export default function HeroSection() {
             <input
               type="email"
               placeholder="Enter your email to connect"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
               className="flex-1 bg-transparent text-white placeholder:text-white/40 text-sm outline-none min-w-0"
             />
             <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => {
+                onEmailCapture?.(email)
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+              }}
               className="bg-white rounded-full p-3 text-black hover:bg-white/90 transition-colors flex-shrink-0"
               aria-label="Scroll to contact"
             >
