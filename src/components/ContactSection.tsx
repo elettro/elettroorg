@@ -172,7 +172,7 @@ export default function ContactSection() {
               </p>
 
               <a
-                href="mailto:contact@elettrocom"
+                href="mailto:contact@elettro.com"
                 className="flex items-center gap-4 group"
               >
                 <div className="liquid-glass rounded-full p-3">
@@ -181,7 +181,7 @@ export default function ContactSection() {
                 <div>
                   <p className="text-white/40 text-xs tracking-widest uppercase mb-1">Email</p>
                   <p className="text-white text-sm group-hover:text-white/70 transition-colors">
-                    contact@elettrocom
+                    contact@elettro.com
                   </p>
                 </div>
               </a>
