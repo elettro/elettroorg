@@ -122,7 +122,7 @@ export default function HeroSection({ onEmailCapture }: { onEmailCapture?: (emai
       </nav>
 
       {/* Hero content */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12 text-center -translate-y-[20%]">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-12 text-center md:-translate-y-[20%]">
         <h1
           className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-white tracking-tight mb-10 leading-tight overflow-wrap-anywhere min-w-0"
           style={{ ...FONT, overflowWrap: 'anywhere' }}
