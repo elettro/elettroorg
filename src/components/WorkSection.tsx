@@ -128,7 +128,7 @@ function ProjectCard({
   delay: number
   featured?: boolean
 }) {
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLAnchorElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
